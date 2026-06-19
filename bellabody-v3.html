@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BellaBody PostOperative MedSpa — Canada's 1st PostOp Clinic</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --plum:    #18090F;
+  --dark:    #231018;
+  --mid:     #2E1620;
+  --pink:    #C8335A;
+  --pink-lt: #DF5070;
+  --rose:    #EFA8BA;
+  --blush:   #F9EEF0;
+  --cream:   #FAF5F2;
+  --ivory:   #FFFCFA;
+  --gold:    #C4924A;
+  --gold-lt: #D8AA66;
+  --stone:   #8A7278;
+  --white:   #FFFFFF;
+}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;background:var(--ivory);color:var(--plum);overflow-x:hidden;}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:1.4rem 4rem;
+  display:flex;align-items:center;justify-content:space-between;
+  transition:all .4s;
+}
+nav.scrolled{
+  background:rgba(24,9,15,.97);
+  backdrop-filter:blur(20px);
+  padding:1rem 4rem;
+  box-shadow:0 1px 0 rgba(200,51,90,.12);
+}
+.logo{text-decoration:none;}
+.logo-main{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:500;color:var(--white);letter-spacing:.06em;line-height:1;}
+.logo-main em{font-style:italic;color:var(--rose);}
+.logo-sub{font-size:.55rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);opacity:.7;margin-top:.2rem;display:block;}
+.nav-links{display:flex;gap:2.5rem;list-style:none;}
+.nav-links a{font-size:.7rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.45);text-decoration:none;transition:color .2s;}
+.nav-links a:hover{color:var(--rose);}
+.nav-btn{font-size:.68rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--white);background:var(--pink);padding:.7rem 1.6rem;text-decoration:none;transition:background .2s;}
+.nav-btn:hover{background:var(--pink-lt);}
+
+/* HERO — split layout */
+.hero{
+  min-height:100vh;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  position:relative;
+  overflow:hidden;
+}
+
+/* Left: cream/blush panel */
+.hero-left{
+  background:var(--blush);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:9rem 5rem 5rem;
+  position:relative;
+  z-index:2;
+}
+/* Subtle dot pattern */
+.hero-left::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background-image:radial-gradient(circle,rgba(200,51,90,.08) 1px,transparent 1px);
+  background-size:28px 28px;
+  pointer-events:none;
+}
+.hero-flag{
+  display:inline-flex;align-items:center;gap:.65rem;
+  background:rgba(200,51,90,.08);
+  border:1px solid rgba(200,51,90,.2);
+  padding:.45rem 1rem;
+  margin-bottom:2.5rem;
+  width:fit-content;
+}
+.hero-flag-text{font-size:.6rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--pink);}
+.hero-h1{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(3rem,5vw,5.5rem);
+  font-weight:400;
+  color:var(--plum);
+  line-height:1.06;
+  margin-bottom:1.75rem;
+}
+.hero-h1 em{font-style:italic;color:var(--pink);}
+.hero-h1 .gold{color:var(--gold);}
+.hero-tagline{
+  font-size:.88rem;font-weight:300;
+  color:var(--stone);
+  line-height:1.85;
+  max-width:380px;
+  margin-bottom:3rem;
+}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:3.5rem;}
+.btn-pink{
+  font-size:.68rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--white);background:var(--pink);
+  padding:1rem 2rem;text-decoration:none;transition:background .2s;
+}
+.btn-pink:hover{background:var(--pink-lt);}
+.btn-plum{
+  font-size:.68rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--plum);border:1px solid rgba(24,9,15,.2);
+  padding:1rem 2rem;text-decoration:none;transition:all .2s;
+}
+.btn-plum:hover{border-color:var(--pink);color:var(--pink);}
+.hero-meta{
+  display:flex;gap:0;
+  border-top:1px solid rgba(24,9,15,.1);
+  padding-top:2rem;
+}
+.hm-item{
+  padding-right:2rem;margin-right:2rem;
+  border-right:1px solid rgba(24,9,15,.1);
+  display:flex;flex-direction:column;gap:.3rem;
+}
+.hm-item:last-child{border:none;margin:0;padding:0;}
+.hm-num{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:400;color:var(--plum);line-height:1;}
+.hm-num sup{font-size:1rem;color:var(--pink);}
+.hm-lbl{font-size:.6rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--stone);}
+
+/* Right: dark image panel */
+.hero-right{position:relative;overflow:hidden;}
+.hero-img{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1578874691223-64558a3ca096?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;}
+.hero-img-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to left,transparent 40%,var(--plum) 100%),
+             linear-gradient(to top,rgba(24,9,15,.7) 0%,transparent 50%);
+}
+/* Floating credential card */
+.hero-cred{
+  position:absolute;bottom:3rem;right:2.5rem;
+  background:rgba(250,245,242,.96);
+  padding:1.4rem 1.8rem;
+  min-width:200px;
+  border-left:3px solid var(--pink);
+}
+.hcred-lbl{font-size:.58rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--pink);margin-bottom:.4rem;}
+.hcred-val{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:500;color:var(--plum);line-height:1.3;}
+.hero-phone{
+  position:absolute;top:3rem;right:2.5rem;
+  background:rgba(200,51,90,.9);
+  color:var(--white);
+  padding:1rem 1.4rem;
+}
+.hp-lbl{font-size:.58rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:.3rem;}
+.hp-num{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:400;}
+
+/* STRIP */
+.strip{
+  background:var(--plum);
+  padding:1.2rem 4rem;
+  display:flex;align-items:center;justify-content:center;
+  gap:4rem;flex-wrap:wrap;
+  border-bottom:1px solid rgba(200,51,90,.15);
+}
+.strip-item{
+  font-size:.68rem;font-weight:500;letter-spacing:.1em;
+  color:rgba(255,255,255,.5);
+  display:flex;align-items:center;gap:.5rem;
+}
+.strip-item em{font-style:normal;color:var(--rose);}
+
+/* ABOUT — dark + image */
+.about{background:var(--dark);padding:0;}
+.about-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;align-items:stretch;}
+.about-img-col{position:relative;overflow:hidden;min-height:580px;}
+.about-img-col img{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(.65) saturate(.9);}
+.about-img-col::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(to right,transparent 55%,var(--dark) 100%),
+             linear-gradient(to top,rgba(200,51,90,.15) 0%,transparent 40%);
+}
+.about-badge{
+  position:absolute;bottom:2rem;left:2rem;z-index:2;
+  background:var(--pink);color:var(--white);
+  padding:1.1rem 1.5rem;
+}
+.ab-name{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:500;display:block;margin-bottom:.15rem;}
+.ab-title{font-size:.58rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.75);}
+.about-text{padding:5rem;display:flex;flex-direction:column;justify-content:center;}
+.about-lbl{font-size:.62rem;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--rose);opacity:.8;margin-bottom:1.25rem;}
+.about-h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3vw,3rem);font-weight:400;color:var(--white);line-height:1.2;margin-bottom:1.75rem;}
+.about-h2 em{font-style:italic;color:var(--rose);}
+.about-p{font-size:.88rem;line-height:1.95;color:rgba(255,255,255,.45);margin-bottom:1.15rem;}
+.about-pillars{display:grid;grid-template-columns:1fr 1fr;gap:.65rem;margin-top:2rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,.07);}
+.pillar{font-size:.8rem;color:rgba(255,255,255,.65);font-weight:500;display:flex;align-items:center;gap:.6rem;}
+.pillar::before{content:'';width:12px;height:1px;background:var(--pink);flex-shrink:0;}
+
+/* SERVICES — LIGHT section (the key fix) */
+.services{background:var(--cream);padding:8rem 4rem;}
+.svc-inner{max-width:1200px;margin:0 auto;}
+.svc-top{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:4rem;}
+.svc-eyebrow{font-size:.62rem;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--pink);margin-bottom:1rem;}
+.svc-h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,3.5vw,3.2rem);font-weight:400;color:var(--plum);line-height:1.15;}
+.svc-h2 em{font-style:italic;}
+.svc-top-right{font-size:.85rem;color:var(--stone);max-width:280px;text-align:right;line-height:1.8;}
+.svc-list{display:flex;flex-direction:column;}
+.svc-row{
+  display:grid;grid-template-columns:80px 1fr auto;
+  gap:2rem;align-items:center;
+  padding:1.75rem 0;
+  border-bottom:1px solid rgba(24,9,15,.08);
+  transition:all .3s;
+}
+.svc-row:first-child{border-top:1px solid rgba(24,9,15,.08);}
+.svc-row:hover{padding-left:.75rem;background:var(--blush);padding-right:.75rem;}
+.svc-thumb{width:80px;height:60px;object-fit:cover;flex-shrink:0;filter:saturate(.8);}
+.svc-name{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:500;color:var(--plum);margin-bottom:.3rem;transition:color .3s;}
+.svc-row:hover .svc-name{color:var(--pink);}
+.svc-desc{font-size:.78rem;line-height:1.78;color:var(--stone);}
+.svc-tag{
+  font-size:.6rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--pink);border:1px solid rgba(200,51,90,.25);
+  padding:.28rem .75rem;white-space:nowrap;
+}
+
+/* ACCOLADES — dark plum */
+.accolades{background:var(--plum);padding:6rem 4rem;}
+.acc-inner{max-width:1200px;margin:0 auto;}
+.acc-eyebrow{font-size:.62rem;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--rose);opacity:.8;margin-bottom:1.25rem;}
+.acc-h2{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3vw,2.8rem);font-weight:400;color:var(--white);margin-bottom:3.5rem;line-height:1.2;}
+.acc-h2 em{font-style:italic;color:var(--rose);}
+.acc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.06);}
+.acc-card{background:var(--dark);padding:2.5rem 2rem;transition:background .3s;}
+.acc-card:hover{background:var(--mid);}
+.acc-icon{font-size:1.8rem;display:block;margin-bottom:1.5rem;}
+.acc-title{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:500;color:var(--white);margin-bottom:.65rem;line-height:1.3;}
+.acc-desc{font-size:.78rem;line-height:1.78;color:rgba(255,255,255,.38);}
+
+/* GALLERY */
+.gallery{background:var(--dark);}
+.gal-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:320px 320px;gap:3px;}
+.gal-item{overflow:hidden;position:relative;}
+.gal-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s;filter:brightness(.65) saturate(.75);}
+.gal-item:hover img{transform:scale(1.05);filter:brightness(.8) saturate(1);}
+.gal-item.tall{grid-row:span 2;}
+/* Subtle pink tint on hover */
+.gal-item::before{
+  content:'';position:absolute;inset:0;z-index:1;
+  background:rgba(200,51,90,.0);transition:background .4s;
+}
+.gal-item:hover::before{background:rgba(200,51,90,.08);}
+.gal-cap{
+  position:absolute;bottom:0;left:0;right:0;z-index:2;
+  padding:1.25rem 1.5rem;
+  background:linear-gradient(to top,rgba(24,9,15,.85),transparent);
+  color:var(--white);font-size:.65rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  opacity:0;transition:opacity .3s;
+}
+.gal-item:hover .gal-cap{opacity:1;}
+
+/* REVIEWS — blush light */
+.reviews{background:var(--blush);padding:8rem 4rem;}
+.rev-inner{max-width:1200px;margin:0 auto;}
+.rev-eyebrow{font-size:.62rem;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--pink);margin-bottom:1.25rem;}
+.rev-h2{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3vw,2.8rem);font-weight:400;color:var(--plum);margin-bottom:3.5rem;line-height:1.2;}
+.rev-h2 em{font-style:italic;}
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+.rev-card{background:var(--white);padding:2.25rem;border-bottom:2px solid var(--pink);}
+.rev-stars{color:var(--pink);font-size:.85rem;letter-spacing:.08em;margin-bottom:1rem;}
+.rev-text{font-family:'Cormorant Garamond',serif;font-size:1rem;font-style:italic;color:var(--plum);line-height:1.75;margin-bottom:1.5rem;}
+.rev-author{font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--stone);}
+.rev-service{color:var(--pink);}
+
+/* HOURS */
+.hours{background:var(--ivory);padding:8rem 4rem;}
+.hours-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1.35fr;gap:5rem;align-items:start;}
+.hours-eyebrow{font-size:.62rem;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--pink);margin-bottom:1.25rem;}
+.hours-h2{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3vw,2.8rem);font-weight:400;color:var(--plum);line-height:1.2;margin-bottom:2.5rem;}
+.hours-h2 em{font-style:italic;}
+.hours-tbl{width:100%;border-collapse:collapse;}
+.hours-tbl tr{border-bottom:1px solid rgba(24,9,15,.07);}
+.hours-tbl tr:last-child{border:none;}
+.hours-tbl td{padding:.9rem 0;font-size:.88rem;color:var(--stone);}
+.hours-tbl td:last-child{text-align:right;font-weight:600;color:var(--plum);}
+.hours-note{margin-top:1.5rem;background:var(--blush);border-left:2px solid var(--pink);padding:1.1rem 1.4rem;}
+.hours-note p{font-size:.8rem;color:var(--stone);line-height:1.7;}
+.map-box{overflow:hidden;margin-bottom:1.5rem;border:1px solid rgba(24,9,15,.1);}
+.map-box iframe{width:100%;height:280px;border:none;display:block;}
+.contact-box{background:var(--plum);padding:1.6rem 1.75rem;display:flex;flex-direction:column;gap:.8rem;}
+.cb-row{display:flex;gap:.85rem;align-items:flex-start;}
+.cb-icon{font-size:.9rem;opacity:.35;flex-shrink:0;margin-top:.1rem;}
+.cb-lbl{font-size:.58rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--rose);opacity:.7;margin-bottom:.22rem;}
+.cb-val{font-size:.85rem;color:rgba(255,255,255,.6);line-height:1.5;text-decoration:none;}
+.cb-val:hover{color:var(--rose);}
+
+/* CTA */
+.cta{background:var(--dark);padding:8rem 4rem;text-align:center;position:relative;overflow:hidden;}
+.cta::before{
+  content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:700px;height:400px;border-radius:50%;
+  background:radial-gradient(ellipse,rgba(200,51,90,.12) 0%,transparent 70%);
+  pointer-events:none;
+}
+.cta-inner{position:relative;z-index:2;}
+.cta-eyebrow{font-size:.62rem;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--rose);opacity:.8;margin-bottom:1.5rem;}
+.cta-h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2.5rem,4.5vw,4.5rem);font-weight:400;color:var(--white);margin-bottom:.75rem;line-height:1.1;}
+.cta-h2 em{font-style:italic;color:var(--rose);}
+.cta-sub{font-size:.88rem;color:rgba(255,255,255,.3);margin-bottom:3rem;line-height:1.7;}
+.cta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
+.btn-fill-pink{font-size:.7rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--white);background:var(--pink);padding:1.1rem 2.5rem;text-decoration:none;transition:background .2s;}
+.btn-fill-pink:hover{background:var(--pink-lt);}
+.btn-fill-gold{font-size:.7rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--plum);background:var(--gold);padding:1.1rem 2.5rem;text-decoration:none;transition:background .2s;}
+.btn-fill-gold:hover{background:var(--gold-lt);}
+
+footer{
+  background:var(--plum);
+  padding:2.5rem 4rem;
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:1rem;
+  border-top:1px solid rgba(200,51,90,.12);
+}
+.footer-logo{font-family:'Cormorant Garamond',serif;font-size:1rem;color:rgba(255,255,255,.28);}
+.footer-logo em{font-style:italic;color:rgba(239,168,186,.4);}
+.footer-copy{font-size:.68rem;color:rgba(255,255,255,.15);}
+.footer-links{display:flex;gap:2rem;}
+.footer-links a{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.2);text-decoration:none;transition:color .2s;}
+.footer-links a:hover{color:var(--rose);}
+
+@media(max-width:960px){
+  nav,nav.scrolled{padding:1rem 1.5rem;}
+  .nav-links{display:none;}
+  .hero{grid-template-columns:1fr;min-height:auto;}
+  .hero-left{padding:7rem 2rem 4rem;}
+  .hero-right{min-height:360px;}
+  .hero-cred,.hero-phone{display:none;}
+  .strip{padding:1.2rem 1.5rem;gap:1.5rem;}
+  .about,.services,.accolades,.reviews,.hours,.cta{padding:5rem 1.5rem;}
+  .about-inner{grid-template-columns:1fr;}
+  .about-text{padding:3rem 0;}
+  .svc-top{flex-direction:column;align-items:flex-start;gap:1rem;}
+  .svc-top-right{text-align:left;}
+  .svc-row{grid-template-columns:1fr auto;gap:1rem;}
+  .svc-thumb{display:none;}
+  .acc-grid{grid-template-columns:1fr 1fr;}
+  .gal-grid{grid-template-columns:1fr 1fr;grid-template-rows:220px 220px 220px;}
+  .gal-item.tall{grid-row:span 1;}
+  .rev-grid{grid-template-columns:1fr;}
+  .hours-inner{grid-template-columns:1fr;gap:3rem;}
+  footer{padding:2rem 1.5rem;flex-direction:column;text-align:center;}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="#" class="logo">
+    <div class="logo-main">Bella<em>Body</em></div>
+    <span class="logo-sub">PostOperative MedSpa</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="tel:6478710257" class="nav-btn">Book Now</a>
+</nav>
+
+<!-- HERO: split blush + dark -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-flag">
+      <span class="hero-flag-text">🇨🇦 Canada's 1st Fully Licensed PostOp Facility</span>
+    </div>
+    <h1 class="hero-h1">
+      PostOp<br>
+      <em>Innovators.</em><br>
+      <span class="gold">Since 2016.</span>
+    </h1>
+    <p class="hero-tagline">From Canada's first licensed post-operative clinic to the GTA's leading lymphatic and body contouring specialists — BellaBody is where serious recovery happens.</p>
+    <div class="hero-btns">
+      <a href="tel:6478710257" class="btn-pink">Book Your Session</a>
+      <a href="#services" class="btn-plum">Our Services</a>
+    </div>
+    <div class="hero-meta">
+      <div class="hm-item">
+        <div class="hm-num">8<sup>+</sup></div>
+        <div class="hm-lbl">Years Pioneer</div>
+      </div>
+      <div class="hm-item">
+        <div class="hm-num">2</div>
+        <div class="hm-lbl">GTA Locations</div>
+      </div>
+      <div class="hm-item">
+        <div class="hm-num">#1</div>
+        <div class="hm-lbl">In Canada</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-img"></div>
+    <div class="hero-img-overlay"></div>
+    <div class="hero-phone">
+      <div class="hp-lbl">Call or Text</div>
+      <div class="hp-num">(647) 871-0257</div>
+    </div>
+    <div class="hero-cred">
+      <div class="hcred-lbl">Founder & CEO</div>
+      <div class="hcred-val">Stephanie Flores<br>Pioneer of PostOp Care in Canada</div>
+    </div>
+  </div>
+</section>
+
+<!-- STRIP -->
+<div class="strip">
+  <div class="strip-item"><em>✦</em> Post-Op MLD</div>
+  <div class="strip-item"><em>✦</em> Wood Therapy</div>
+  <div class="strip-item"><em>✦</em> Body Contouring</div>
+  <div class="strip-item"><em>✦</em> Laser Treatments</div>
+  <div class="strip-item"><em>✦</em> Pre-Surgical Prep</div>
+  <div class="strip-item"><em>✦</em> (647) 871-0257</div>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-inner">
+    <div class="about-img-col">
+      <img src="https://images.unsplash.com/photo-1612544405888-b55e5a4fc60c?auto=format&fit=crop&w=900&q=80" alt="BellaBody post-op treatment">
+      <div class="about-badge">
+        <span class="ab-name">Stephanie Flores</span>
+        <span class="ab-title">CEO · PostOp Pioneer · Canada 2016</span>
+      </div>
+    </div>
+    <div class="about-text">
+      <div class="about-lbl">Our Story</div>
+      <h2 class="about-h2">Born in Toronto.<br>Built for <em>recovery.</em></h2>
+      <p class="about-p">In 2016, Stephanie Flores saw what was missing in Canada — expert, compassionate care for people recovering from aesthetic surgeries. She built Canada's first fully licensed postoperative recovery facility from the ground up, right here in the GTA.</p>
+      <p class="about-p">From Manual Lymphatic Drainage to wood therapy, body contouring to laser treatments — BellaBody's certified specialists deliver clinical results in an environment as polished as the outcome you're working toward.</p>
+      <p class="about-p">Today we operate two locations in Mississauga and Vaughan, serving clients from across Canada who trust their recovery to no one else.</p>
+      <div class="about-pillars">
+        <div class="pillar">Canada's 1st certified</div>
+        <div class="pillar">Sterile clinical space</div>
+        <div class="pillar">Pre-surgical prep</div>
+        <div class="pillar">Non-surgical contouring</div>
+        <div class="pillar">Trusted by surgeons</div>
+        <div class="pillar">Two GTA locations</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES — light cream -->
+<section class="services" id="services">
+  <div class="svc-inner">
+    <div class="svc-top">
+      <div>
+        <div class="svc-eyebrow">Treatments</div>
+        <h2 class="svc-h2">Every stage of your<br><em>journey, covered</em></h2>
+      </div>
+      <p class="svc-top-right">Pre-op, post-op, non-surgical — we've pioneered every phase of aesthetic recovery.</p>
+    </div>
+    <div class="svc-list">
+      <div class="svc-row">
+        <img class="svc-thumb" src="https://images.unsplash.com/photo-1612544405888-b55e5a4fc60c?auto=format&fit=crop&w=160&h=120&q=80" alt="MLD">
+        <div>
+          <div class="svc-name">Post-Operative MLD</div>
+          <p class="svc-desc">Manual Lymphatic Drainage — our signature service. Gentle, precise techniques to reduce swelling, prevent fibrosis, and accelerate healing after BBL, tummy tuck, liposuction and all aesthetic surgeries.</p>
+        </div>
+        <span class="svc-tag">Signature · Most Booked</span>
+      </div>
+      <div class="svc-row">
+        <img class="svc-thumb" src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=160&h=120&q=80" alt="Wood Therapy">
+        <div>
+          <div class="svc-name">Wood Therapy (Maderotherapy)</div>
+          <p class="svc-desc">Handcrafted wooden tools used to break down fat deposits, stimulate lymphatic flow, and sculpt the body. Highly effective for post-op contouring and fibrosis prevention.</p>
+        </div>
+        <span class="svc-tag">60 / 90 min</span>
+      </div>
+      <div class="svc-row">
+        <img class="svc-thumb" src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?auto=format&fit=crop&w=160&h=120&q=80" alt="Contouring">
+        <div>
+          <div class="svc-name">Non-Surgical Body Contouring</div>
+          <p class="svc-desc">Advanced contouring to reshape, tighten and define — without going under the knife. Our Vaughan location specializes exclusively in non-surgical transformations.</p>
+        </div>
+        <span class="svc-tag">Consultation Required</span>
+      </div>
+      <div class="svc-row">
+        <img class="svc-thumb" src="https://images.unsplash.com/photo-1523116081861-9a03a78c4195?auto=format&fit=crop&w=160&h=120&q=80" alt="Pre-op">
+        <div>
+          <div class="svc-name">Pre-Surgical Preparation</div>
+          <p class="svc-desc">A BellaBody original. Pre-op treatments that optimize your body before surgery — preparing your lymphatic system, circulation and skin for the best possible surgical outcome.</p>
+        </div>
+        <span class="svc-tag">BellaBody Original</span>
+      </div>
+      <div class="svc-row">
+        <img class="svc-thumb" src="https://images.unsplash.com/photo-1616699002805-0741e1e4a9c5?auto=format&fit=crop&w=160&h=120&q=80" alt="Laser">
+        <div>
+          <div class="svc-name">Laser Treatments & Skin</div>
+          <p class="svc-desc">Advanced laser therapy for skin rejuvenation, post-surgical scar reduction, and surface treatment — delivered in a fully sterile clinical environment.</p>
+        </div>
+        <span class="svc-tag">By Consultation</span>
+      </div>
+      <div class="svc-row">
+        <img class="svc-thumb" src="https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&fit=crop&w=160&h=120&q=80" alt="Spa">
+        <div>
+          <div class="svc-name">Body Wraps, Scrubs & Spa Packages</div>
+          <p class="svc-desc">Detoxifying wraps, exfoliating scrubs, infrared sauna, and curated recovery spa packages — to restore and renew at every stage of your journey.</p>
+        </div>
+        <span class="svc-tag">60 / 90 min</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACCOLADES — dark -->
+<section class="accolades">
+  <div class="acc-inner">
+    <div class="acc-eyebrow">Why BellaBody</div>
+    <h2 class="acc-h2">The standard that others <em>follow</em></h2>
+    <div class="acc-grid">
+      <div class="acc-card">
+        <span class="acc-icon">🏆</span>
+        <div class="acc-title">Canada's 1st Licensed PostOp Facility</div>
+        <p class="acc-desc">Stephanie Flores pioneered the post-operative recovery industry in Canada in 2016. We set the standard — everyone else followed.</p>
+      </div>
+      <div class="acc-card">
+        <span class="acc-icon">🔬</span>
+        <div class="acc-title">PRE-Op Creators</div>
+        <p class="acc-desc">We didn't just build post-op care — we created the pre-surgical prep protocol that is now widely adopted across the GTA's aesthetic surgery community.</p>
+      </div>
+      <div class="acc-card">
+        <span class="acc-icon">✨</span>
+        <div class="acc-title">NON-Surgical Contour Specialists</div>
+        <p class="acc-desc">Advanced body contouring without surgery at our dedicated Vaughan location. Real results, no downtime, no scalpel.</p>
+      </div>
+      <div class="acc-card">
+        <span class="acc-icon">⚡</span>
+        <div class="acc-title">PRO Sports Therapy</div>
+        <p class="acc-desc">Recovery isn't only for post-op clients. Our sports therapy protocols serve athletes seeking peak performance and rapid muscle recovery.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<div class="gallery">
+  <div class="gal-grid">
+    <div class="gal-item tall">
+      <img src="https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&fit=crop&w=800&q=80" alt="BellaBody clinic">
+      <div class="gal-cap">Our Clinic</div>
+    </div>
+    <div class="gal-item">
+      <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80" alt="Treatment room">
+      <div class="gal-cap">Treatment Rooms</div>
+    </div>
+    <div class="gal-item">
+      <img src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?auto=format&fit=crop&w=800&q=80" alt="Body contouring">
+      <div class="gal-cap">Body Contouring</div>
+    </div>
+    <div class="gal-item">
+      <img src="https://images.unsplash.com/photo-1616699002805-0741e1e4a9c5?auto=format&fit=crop&w=800&q=80" alt="Laser">
+      <div class="gal-cap">Laser Suite</div>
+    </div>
+    <div class="gal-item">
+      <img src="https://images.unsplash.com/photo-1523116081861-9a03a78c4195?auto=format&fit=crop&w=800&q=80" alt="Recovery">
+      <div class="gal-cap">Recovery Suite</div>
+    </div>
+  </div>
+</div>
+
+<!-- REVIEWS — blush -->
+<section class="reviews" id="reviews">
+  <div class="rev-inner">
+    <div class="rev-eyebrow">Client Results</div>
+    <h2 class="rev-h2">What they say after <em>BellaBody</em></h2>
+    <div class="rev-grid">
+      <div class="rev-card">
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text">"I had complications post surgery with my tummy tuck. She was extremely knowledgeable dealing with my complicated case. I could see results immediately. I went 15+ sessions and would recommend her to anyone."</p>
+        <div class="rev-author">Verified Client · <span class="rev-service">Post-Op MLD</span></div>
+      </div>
+      <div class="rev-card">
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text">"She uses amazing techniques and drained me so well. Amazing personality, made me feel so comfortable. Looking forward to going back after my round 2 BBL."</p>
+        <div class="rev-author">Verified Client · <span class="rev-service">BBL Recovery</span></div>
+      </div>
+      <div class="rev-card">
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text">"I came in for wood therapy and loved my results after just one session. The establishment is clean, staff are knowledgeable and friendly. Can't wait to see my final results."</p>
+        <div class="rev-author">Verified Client · <span class="rev-service">Wood Therapy</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOURS -->
+<section class="hours" id="hours">
+  <div class="hours-inner">
+    <div>
+      <div class="hours-eyebrow">Find Us</div>
+      <h2 class="hours-h2">Hours &<br><em>Locations</em></h2>
+      <table class="hours-tbl">
+        <tr><td>Monday</td><td>10:00 AM – 8:00 PM</td></tr>
+        <tr><td>Tuesday</td><td>10:00 AM – 8:00 PM</td></tr>
+        <tr><td>Wednesday</td><td>10:00 AM – 8:00 PM</td></tr>
+        <tr><td>Thursday</td><td>10:00 AM – 8:00 PM</td></tr>
+        <tr><td>Friday</td><td>11:00 AM – 6:00 PM</td></tr>
+        <tr><td>Saturday</td><td>11:00 AM – 4:00 PM</td></tr>
+        <tr><td>Sunday</td><td>2:00 PM – 6:00 PM</td></tr>
+      </table>
+      <div class="hours-note">
+        <p>By appointment only. First-time clients please arrive 10–15 minutes early. Shoes off at the door — slippers provided. Sterile environment maintained at all times.</p>
+      </div>
+    </div>
+    <div id="contact">
+      <div class="map-box">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2887!2d-79.584715!3d43.5521964!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b475508e23fab%3A0x4b6058f8345a06d4!2sBellaBody%20PostOperative%20MedSpa!5e0!3m2!1sen!2sca!4v1" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <div class="contact-box">
+        <div class="cb-row"><span class="cb-icon">📍</span><div><div class="cb-lbl">Mississauga</div><a href="https://maps.app.goo.gl/KhsYJVDEpKHyu8Pm7" class="cb-val" target="_blank">47 Lakeshore Rd E, Mississauga, ON L5G 1C9</a></div></div>
+        <div class="cb-row"><span class="cb-icon">📍</span><div><div class="cb-lbl">Vaughan</div><span class="cb-val">Hurontario St & Pinewood Trail, Vaughan</span></div></div>
+        <div class="cb-row"><span class="cb-icon">📞</span><div><div class="cb-lbl">Phone / Text</div><a href="tel:6478710257" class="cb-val">(647) 871-0257</a></div></div>
+        <div class="cb-row"><span class="cb-icon">📱</span><div><div class="cb-lbl">Instagram</div><a href="https://www.instagram.com/bellabodytoronto/" target="_blank" class="cb-val">@bellabodytoronto</a></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="cta-inner">
+    <div class="cta-eyebrow">Canada's 1st · Canada's Best</div>
+    <h2 class="cta-h2">Your recovery deserves<br>the best in <em>Canada</em></h2>
+    <p class="cta-sub">Mississauga · Vaughan · (647) 871-0257 · @bellabodytoronto<br>Post-Op MLD · Wood Therapy · Body Contouring · Laser · Pre-Surgical Prep</p>
+    <div class="cta-btns">
+      <a href="tel:6478710257" class="btn-fill-pink">Call (647) 871-0257</a>
+      <a href="https://www.instagram.com/bellabodytoronto/" target="_blank" class="btn-fill-gold">@bellabodytoronto</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Bella<em>Body</em> PostOperative MedSpa Inc.</div>
+  <div class="footer-copy">© 2025 BellaBody PostOperative Care Inc. · Canada's 1st Fully Licensed PostOp Facility.</div>
+  <div class="footer-links">
+    <a href="#services">Services</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#contact">Contact</a>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 80));
+</script>
+</body>
+</html>
